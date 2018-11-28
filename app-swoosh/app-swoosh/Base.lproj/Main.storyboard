@@ -81,19 +81,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="bgImg" destination="VjH-6A-9up" id="sFZ-pC-ULE"/>
-                        <outlet property="swoosh" destination="g2K-Ua-fCM" id="rtG-ja-U7B"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--LeagueVC-->
         <scene sceneID="Jeu-g4-Xtc">
             <objects>
-                <viewController id="waF-RC-xzz" sceneMemberID="viewController">
+                <viewController id="waF-RC-xzz" customClass="LeagueVC" customModule="app_swoosh" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fiY-W3-FfI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -163,6 +159,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="onNextTapped:" destination="waF-RC-xzz" eventType="touchUpInside" id="qyQ-uG-HSG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh4-Cb-TBe">
                                 <rect key="frame" x="20" y="30" width="29" height="24"/>
@@ -196,16 +195,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="P25-5l-PEq"/>
                     </view>
+                    <connections>
+                        <segue destination="Pqa-sp-OdH" kind="show" identifier="skillVCSegue" id="xAL-wg-EWS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cbe-G3-h2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="IxE-lR-8Fs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1009" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--SkillVC-->
         <scene sceneID="Vcj-tz-s90">
             <objects>
-                <viewController id="Pqa-sp-OdH" sceneMemberID="viewController">
+                <viewController id="Pqa-sp-OdH" customClass="SkillVC" customModule="app_swoosh" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YOP-8h-cYe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -267,6 +269,17 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMN-M9-l1F">
+                                <rect key="frame" x="20" y="30" width="29" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="29" id="57q-hq-xTd"/>
+                                    <constraint firstAttribute="height" constant="24" id="dem-yc-KWY"/>
+                                </constraints>
+                                <state key="normal" image="backButton"/>
+                                <connections>
+                                    <segue destination="Zbs-qi-37Y" kind="unwind" unwindAction="unwindFromSkillVCWithUnwindSeque:" id="Hf6-kQ-4py"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -278,16 +291,19 @@
                             <constraint firstItem="6f4-Ms-b0d" firstAttribute="leading" secondItem="8a6-B8-xLj" secondAttribute="leading" id="Roi-IQ-IKN"/>
                             <constraint firstItem="8a6-B8-xLj" firstAttribute="trailing" secondItem="MxC-LQ-fVc" secondAttribute="trailing" constant="8" id="TNT-Si-hAV"/>
                             <constraint firstItem="dqa-ej-dQ2" firstAttribute="top" secondItem="piq-bD-FB2" secondAttribute="bottom" constant="50" id="TXs-3E-Jtm"/>
+                            <constraint firstItem="NMN-M9-l1F" firstAttribute="leading" secondItem="8a6-B8-xLj" secondAttribute="leading" constant="20" id="WpG-rj-Qg6"/>
                             <constraint firstItem="8a6-B8-xLj" firstAttribute="bottom" secondItem="MxC-LQ-fVc" secondAttribute="bottom" constant="20" id="XfA-uF-wpU"/>
                             <constraint firstItem="8a6-B8-xLj" firstAttribute="trailing" secondItem="6f4-Ms-b0d" secondAttribute="trailing" id="Yte-qw-RaK"/>
                             <constraint firstItem="8a6-B8-xLj" firstAttribute="trailing" secondItem="dqa-ej-dQ2" secondAttribute="trailing" constant="8" id="mOD-Je-sk6"/>
                             <constraint firstItem="6f4-Ms-b0d" firstAttribute="top" secondItem="8a6-B8-xLj" secondAttribute="top" id="oaa-Sm-6Ie"/>
                             <constraint firstItem="dqa-ej-dQ2" firstAttribute="leading" secondItem="8a6-B8-xLj" secondAttribute="leading" constant="8" id="vgl-lD-oRo"/>
+                            <constraint firstItem="NMN-M9-l1F" firstAttribute="top" secondItem="8a6-B8-xLj" secondAttribute="top" constant="10" id="xal-eo-GaK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8a6-B8-xLj"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTo-z6-iE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Zbs-qi-37Y" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1882" y="134"/>
         </scene>
